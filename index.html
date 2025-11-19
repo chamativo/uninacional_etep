@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-uni">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uninacional – Educação para Todos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-uni">
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <img src="img/uninacional_logo_inverted.png" alt="Logo Uninacional">
+                <span>Uninacional</span>
+            </a>
+        </div>
+        <nav>
+            <a href="courses.html">Cursos</a>
+            <a href="#area-alunos">Área do Aluno</a>
+            <a href="#quem-somos">Quem Somos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Hero section with search -->
+    <section class="hero">
+        <h1>Encontre o seu curso ideal</h1>
+        <form class="search-container" action="courses.html" method="get">
+            <input type="text" name="q" placeholder="Curso que você procura">
+            <select name="modalidade">
+                <option value="">Modalidade</option>
+                <option value="EaD">EaD</option>
+                <option value="Semipresencial">Semipresencial</option>
+            </select>
+            <button type="submit">Buscar cursos</button>
+        </form>
+    </section>
+
+    <!-- Nossos cursos section -->
+    <section class="section" id="nossos-cursos">
+        <h2>Nossos cursos</h2>
+        <div class="modality-cards">
+            <a href="courses.html?modalidade=Presencial" class="modality-card">
+                <img src="img/graduacao_presencial.png" alt="Graduação Presencial" class="modality-image">
+                <h3>Graduação Presencial</h3>
+            </a>
+            <a href="courses.html?modalidade=Semipresencial" class="modality-card">
+                <img src="img/graduacao_semipresencial.png" alt="Graduação Semi Presencial" class="modality-image">
+                <h3>Graduação Semi Presencial</h3>
+            </a>
+            <a href="courses.html?modalidade=EaD" class="modality-card">
+                <img src="img/graduacao_ead.png" alt="Graduação EaD" class="modality-image">
+                <h3>Graduação EaD</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Quem somos section -->
+    <section class="section" id="quem-somos">
+        <h2>Quem somos</h2>
+        <div class="about-container">
+            <img src="img/about.jpg" alt="Quem somos" class="about-image">
+            <p>
+                O <strong>Polo Uninacional</strong> é um polo conveniado ao Centro Universitário ETEP.
+                Oferecemos cursos de graduação EaD do Centro Universitário ETEP, com toda a infraestrutura
+                de apoio presencial, incluindo acesso a laboratórios, biblioteca e suporte de tutores,
+                para que você tenha a melhor experiência de aprendizagem.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact placeholder (not fully implemented) -->
+    <section class="section" id="contato">
+        <h2>Contato</h2>
+        <p>
+            Para mais informações, entre em contato conosco pelo e-mail
+            <a href="mailto:contato@uninacional.edu.br">contato@uninacional.edu.br</a> ou pelo telefone
+            (11) 4000-0000.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="text-align: center; font-size: 0.9rem; color: #666;">
+        &copy; 2025 Uninacional. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

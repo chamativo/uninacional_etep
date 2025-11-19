@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição ETEP EAD</title>
+    
+    <!-- Font Awesome -->
+    <link href="inscricao/Inscrição ETEP EAD_files/all.min.css" rel="stylesheet">
+    
+    <!-- CSS do ETEP -->
+    <link rel="stylesheet" href="inscricao/Inscrição ETEP EAD_files/assets/index-Da5ejgRG.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            min-width: 320px;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        
+        .header {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        #logo-uninacional {
+            height: 70px;
+            width: auto;
+            display: none;
+        }
+        
+        .steps-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .offer-card {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+        }
+        
+        .offer-course {
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #252e62;
+        }
+        
+        .offer-detail {
+            color: #ed6e26;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+        
+        .step-container {
+            margin-top: 20px;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .step-ruller {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            position: relative;
+        }
+        
+        .step-ruller::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 3px;
+            height: 40px;
+            background: #8a8a8a;
+            transform: translateX(-50%);
+        }
+        
+        .step-item:last-child .step-ruller::after {
+            display: none;
+        }
+        
+        .ball {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: #8a8a8a;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .ball.active {
+            background-color: #ed6e26;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #8a8a8a;
+        }
+        
+        .step-item.active .step-title {
+            color: #ed6e26;
+        }
+        
+        .whats-box {
+            margin: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .whats-icon {
+            display: inline-block;
+            font-size: 18px;
+            padding: 6px 2px 2px 4px;
+            width: 22px;
+            height: 22px;
+            line-height: 1;
+            background-color: #ed6e26;
+            color: white;
+            border-radius: 22px;
+            text-align: center;
+        }
+        
+        .whats-text {
+            flex: 1;
+        }
+        
+        .whats-label {
+            color: #555555;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        
+        .whats-detail {
+            color: #8a8a8a;
+            font-size: 12px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            background: white;
+        }
+        
+        .back-link {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: none;
+        }
+        
+        .back-link a {
+            color: #ed6e26;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .content-block {
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .content-inner {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .question h3 {
+            font-size: 26px;
+            font-weight: 500;
+            color: #252e62;
+            margin-bottom: 10px;
+        }
+        
+        .comment {
+            color: #8a8a8a;
+            margin-bottom: 30px;
+        }
+        
+        .search {
+            position: relative;
+        }
+        
+        .search input {
+            width: 100%;
+            padding: 12px 15px;
+            padding-left: 45px;
+            box-sizing: border-box;
+            background-color: white;
+            font-size: 1.1em;
+            font-family: 'Open Sans', sans-serif;
+            color: #555555;
+            border: 1px solid #8a8a8a;
+            border-radius: 4px;
+        }
+        
+        .search::before {
+            content: '\f002';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a8a8a;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8em;
+            background-color: rgba(37, 46, 98, 0.1);
+            border-top: 1px solid #ddd;
+        }
+        
+        .footer .comment {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #ed6e26;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .back-link {
+                display: block;
+            }
+            
+            .header-logo {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="header">
+                <div class="header-logos">
+                    <a href="https://etepead.com.br/" target="_blank">
+                        <img src="inscricao/Inscrição ETEP EAD_files/logo-hor-wb.png" alt="ETEP" class="header-logo">
+                    </a>
+                    <img id="logo-uninacional" src="img/uninacional_logo_polo.png" alt="Polo Uninacional">
+                </div>
+            </div>
+            
+            <div class="steps-container">
+                <div class="offer-card">
+                    <div class="offer-course" id="curso-nome">Carregando...</div>
+                    <div class="offer-detail" id="curso-detalhes">Carregando...</div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-item active">
+                        <div class="step-ruller">
+                            <span class="ball active">1</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-title">Oferta</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-ruller">
+                            <span class="ball">2</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-title">Processo seletivo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-ruller">
+                            <span class="ball">3</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-title">Informações pessoais</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-ruller">
+                            <span class="ball">4</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-title">Contrato</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-ruller">
+                            <span class="ball">5</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-title">Bons Estudos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="whats-box">
+                <div class="whats-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="whats-text">
+                    <div class="whats-label">Whatsapp ETEP EAD</div>
+                    <div class="whats-detail">Tel: 11 97886 5002</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="back-link">
+                <a href="#">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </a>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-inner">
+                    <div class="question">
+                        <h3>Em qual localidade você quer começar seus estudos?</h3>
+                        <div class="comment">Oferecemos cursos em diferentes regiões do Brasil.</div>
+                        <div class="search">
+                            <input type="search" placeholder="Search" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="comment">
+                    <i class="fa-solid fa-lock"></i> Ambiente seguro
+                </div>
+                <div>
+                    Precisa de uma ajuda? <a href="#">Fale conosco</a>
+                </div>
+                <div class="comment">2025 ETEP EAD CNPJ 48.545.428/0001-46</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Dados dos cursos
+        const coursesData = {
+            "administracao": {
+                "nome": "Administração",
+                "tipo_curso": "Bacharelado",
+                "modalidade": "EaD"
+            },
+            "gestao_comercial": {
+                "nome": "Gestão Comercial",
+                "tipo_curso": "CST",
+                "modalidade": "EaD"
+            },
+            "nutricao": {
+                "nome": "Nutrição",
+                "tipo_curso": "Bacharelado",
+                "modalidade": "Semipresencial"
+            },
+            "licenciatura_matematica": {
+                "nome": "Licenciatura em Matemática",
+                "tipo_curso": "Licenciatura",
+                "modalidade": "Semipresencial"
+            },
+            "licenciatura_portugues": {
+                "nome": "Licenciatura em Língua Portuguesa",
+                "tipo_curso": "Licenciatura",
+                "modalidade": "Semipresencial"
+            },
+            "engenharia_civil": {
+                "nome": "Engenharia Civil",
+                "tipo_curso": "Bacharelado",
+                "modalidade": "Semipresencial"
+            }
+        };
+        
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+        
+        function loadCourseData() {
+            const courseId = getUrlParameter('id');
+            
+            if (!courseId) {
+                return;
+            }
+            
+            const course = coursesData[courseId];
+            if (!course) {
+                return;
+            }
+            
+            // Atualizar nome do curso
+            const cursoNomeEl = document.getElementById('curso-nome');
+            if (cursoNomeEl) {
+                cursoNomeEl.textContent = course.nome;
+            }
+            
+            // Atualizar detalhes do curso
+            const modalidadeFormatada = course.modalidade === 'EaD' ? 'EaD' : 
+                                      course.modalidade === 'Semipresencial' ? 'Semipresencial' : 
+                                      course.modalidade === 'Presencial' ? 'Presencial' : course.modalidade;
+            const novoTexto = course.tipo_curso + ' - ' + modalidadeFormatada;
+            const cursoDetalhesEl = document.getElementById('curso-detalhes');
+            if (cursoDetalhesEl) {
+                cursoDetalhesEl.textContent = novoTexto;
+            }
+            
+            // Mostrar logo Uninacional
+            const logoEl = document.getElementById('logo-uninacional');
+            if (logoEl) {
+                logoEl.style.display = 'block';
+            }
+        }
+        
+        // Carregar dados quando a página estiver pronta
+        document.addEventListener('DOMContentLoaded', loadCourseData);
+    </script>
+</body>
+</html>

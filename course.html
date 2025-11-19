@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-uni">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Curso – Oferta ETEP / Polo Uninacional</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-uni">
+    <header>
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <img src="img/uninacional_logo_inverted.png" alt="Logo Uninacional">
+                <span>Uninacional</span>
+            </a>
+        </div>
+        <nav>
+            <a href="courses.html">Cursos</a>
+            <a href="#">Área do Aluno</a>
+            <a href="index.html#quem-somos">Quem Somos</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
+    </header>
+    <section class="section">
+        <h2 id="course-name">Carregando...</h2>
+        <img id="course-image" src="" alt="" class="course-banner">
+        <div class="course-detail">
+            <div class="info">
+                <h2 class="about-course">Sobre o Curso</h2>
+                <p id="sobre-curso">
+                    Carregando informações do curso...
+                </p>
+                <h3>Mercado de Trabalho</h3>
+                <p id="mercado-trabalho">
+                    Carregando informações do mercado de trabalho...
+                </p>
+                <h3>Competências e habilidades que serão desenvolvidas</h3>
+                <ul id="competencias" class="competencies-list">
+                    <li>Carregando...</li>
+                </ul>
+                <h3>Regulatório e credenciamento</h3>
+                <p>
+                    A Uninacional, na condição de <strong>polo parceiro</strong>, tem o prazer de oferecer o
+                    <strong id="curso-parceria">curso</strong> do Centro Universitário ETEP.
+                </p>
+                <p>
+                    A matrícula e o contrato acadêmico são firmados diretamente com a <strong>ETEP</strong>. O diploma
+                    é expedido pela ETEP ao final do curso. O Polo Uninacional fornece toda a infraestrutura de
+                    apoio presencial, como acesso a laboratórios, biblioteca e suporte de tutores, para que você
+                    tenha a melhor experiência de aprendizagem.
+                </p>
+            </div>
+            <aside class="sidebar">
+                <div class="course-info-header">
+                    <div class="course-modality" id="course-modality">EaD</div>
+                    <div class="course-type-duration">
+                        <span id="course-type">Bacharelado</span>
+                        <span id="course-duration">4 anos</span>
+                    </div>
+                </div>
+                <ul class="benefits">
+                    <li>100% online</li>
+                    <li>Estude onde e quando quiser</li>
+                    <li>App com acessibilidade inclusiva</li>
+                    <li>Livro digital em PDF</li>
+                    <li>Videoaulas</li>
+                    <li>Acesso a biblioteca virtual</li>
+                    <li>Núcleo de apoio intensivo ao aluno – NAIA</li>
+                    <li>Diploma emitido pela ETEP</li>
+                </ul>
+                <div class="promo-price">1º Mensalidade R$ 9,90</div>
+                <div class="price-container">
+                    <span class="price-original" id="preco-cheio">De R$ 700,00</span>
+                    <span class="price-discount" id="preco-desconto">por R$ 184,93</span>
+                    <span class="price-note">(pontualidade)</span>
+                </div>
+                <div class="cta">
+                    <a id="inscricao-link" href="#">Inscreva-se</a>
+                </div>
+            </aside>
+        </div>
+    </section>
+    <footer class="section" style="text-align: center; font-size: 0.9rem; color: #666;">
+        &copy; 2025 Uninacional. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Dados dos cursos (carregados do JSON ou inline para file://)
+        const coursesData = {
+                      "administracao": {
+                                "id": "administracao",
+                                "nome": "Administração",
+                                "imagem": "img/administracao.png",
+                                "tipo_curso": "Bacharelado",
+                                "duracao": "4 anos",
+                                "modalidade": "EaD",
+                                "preco_cheio": "R$ 700,00",
+                                "preco_desconto": "R$ 134,93",
+                                "sobre_curso": "O curso de Administração é voltado para estudantes que desejam atuar na gestão de organizações públicas e privadas, planejando, organizando, dirigindo e controlando atividades empresariais. É ideal para aqueles que têm interesse por gestão, negócios e liderança, e buscam uma formação prática e estratégica para tomar decisões em diferentes contextos organizacionais.",
+                                "mercado_trabalho": "O bacharel em Administração possui um mercado de trabalho amplo e diversificado. Pode atuar em empresas de todos os portes e setores, como gerente de projetos, analista de negócios, consultor, empreendedor, gestor de recursos humanos, analista financeiro, gestor de operações, diretor executivo, entre outras funções. O curso também prepara para concursos públicos e para seguir carreira acadêmica.",
+                                "competencias": [
+                                          "Planejamento estratégico e tático",
+                                          "Gestão de pessoas e liderança",
+                                          "Análise financeira e controle orçamentário",
+                                          "Marketing e gestão comercial",
+                                          "Gestão de operações e logística",
+                                          "Empreendedorismo e inovação",
+                                          "Gestão de projetos",
+                                          "Análise de mercado e tomada de decisão",
+                                          "Ética e responsabilidade profissional"
+                                ],
+                                "redirect_inscricao": "redirect.html?id=administracao"
+                      },
+                      "gestao_comercial": {
+                                "id": "gestao_comercial",
+                                "nome": "Gestão Comercial",
+                                "imagem": "img/gestao_comercial.png",
+                                "tipo_curso": "CST",
+                                "duracao": "2 anos",
+                                "modalidade": "EaD",
+                                "preco_cheio": "R$ 845,00",
+                                "preco_desconto": "R$ 184,93",
+                                "sobre_curso": "O curso de Gestão Comercial é voltado para estudantes que desejam atuar na gestão de processos comerciais, planejando, executando e gerenciando estratégias de vendas e relacionamento com clientes. É ideal para aqueles que têm interesse por vendas, marketing e negócios, e buscam uma formação prática para atuar em um ambiente competitivo e digitalizado.",
+                                "mercado_trabalho": "O tecnólogo em Gestão Comercial encontra oportunidades em varejo, atacado, indústrias, consultorias e empresas de serviços. O profissional pode atuar como gestor de vendas, representante comercial, analista de mercado, supervisor de equipes, consultor de negócios, gerente comercial, coordenador de vendas, além de empreender no próprio negócio.",
+                                "competencias": [
+                                          "Planejamento e gestão comercial",
+                                          "Análise de mercado e comportamento do consumidor",
+                                          "Estratégias de vendas e negociação",
+                                          "Gestão de equipes comerciais",
+                                          "Marketing e comunicação comercial",
+                                          "Gestão de relacionamento com clientes (CRM)",
+                                          "Análise de indicadores comerciais",
+                                          "Gestão de canais de distribuição",
+                                          "Ética e responsabilidade profissional"
+                                ],
+                                "redirect_inscricao": "redirect.html?id=gestao_comercial"
+                      },
+                      "nutricao": {
+                                "id": "nutricao",
+                                "nome": "Nutrição",
+                                "imagem": "img/nutricao.png",
+                                "tipo_curso": "Bacharelado",
+                                "duracao": "4 anos",
+                                "modalidade": "Semipresencial",
+                                "preco_cheio": "R$ 750,00",
+                                "preco_desconto": "R$ 149,90",
+                                "sobre_curso": "O curso de Nutrição é voltado para estudantes que desejam atuar na promoção da saúde e prevenção de doenças por meio da alimentação adequada. É ideal para aqueles que têm interesse por saúde, ciências biológicas e bem-estar, e buscam uma formação que combine conhecimentos científicos com práticas de educação alimentar e nutricional.",
+                                "mercado_trabalho": "O nutricionista possui um mercado de trabalho amplo e em crescimento. Pode atuar em hospitais, clínicas, unidades básicas de saúde, restaurantes, indústrias alimentícias, academias, consultórios, escolas, além de desenvolver projetos de pesquisa e atuar na área de segurança alimentar e nutricional.",
+                                "competencias": [
+                                          "Avaliação nutricional e diagnóstico",
+                                          "Planejamento e prescrição de dietas",
+                                          "Educação alimentar e nutricional",
+                                          "Gestão de unidades de alimentação e nutrição",
+                                          "Desenvolvimento de produtos alimentícios",
+                                          "Nutrição clínica e hospitalar",
+                                          "Nutrição esportiva",
+                                          "Segurança alimentar e nutricional",
+                                          "Ética e responsabilidade profissional"
+                                ],
+                                "redirect_inscricao": "redirect.html?id=nutricao"
+                      },
+                      "licenciatura_matematica": {
+                                "id": "licenciatura_matematica",
+                                "nome": "Licenciatura em Matemática",
+                                "imagem": "img/licenciatura_em_matematica.png",
+                                "tipo_curso": "Licenciatura",
+                                "duracao": "4 anos",
+                                "modalidade": "Semipresencial",
+                                "preco_cheio": "R$ 680,00",
+                                "preco_desconto": "R$ 129,50",
+                                "sobre_curso": "O curso de Licenciatura em Matemática é voltado para estudantes que desejam atuar na educação, formando-se como professores de Matemática para os ensinos fundamental e médio. É ideal para aqueles que têm interesse por números, lógica, ensino e educação, e buscam uma formação que combine conhecimentos matemáticos sólidos com práticas pedagógicas inovadoras.",
+                                "mercado_trabalho": "O licenciado em Matemática encontra oportunidades principalmente na área educacional, atuando como professor em escolas públicas e privadas, cursinhos preparatórios e ensino superior. Pode também trabalhar com desenvolvimento de materiais didáticos, pesquisa em educação matemática, além de atuar em editoras e empresas de tecnologia educacional.",
+                                "competencias": [
+                                          "Domínio dos conteúdos matemáticos",
+                                          "Planejamento e execução de aulas",
+                                          "Metodologias de ensino de matemática",
+                                          "Avaliação da aprendizagem",
+                                          "Uso de tecnologias educacionais",
+                                          "Pesquisa em educação matemática",
+                                          "Desenvolvimento de materiais didáticos",
+                                          "Gestão de processos educacionais",
+                                          "Ética e responsabilidade profissional"
+                                ],
+                                "redirect_inscricao": "redirect.html?id=licenciatura_matematica"
+                      },
+                      "licenciatura_portugues": {
+                                "id": "licenciatura_portugues",
+                                "nome": "Licenciatura em Língua Portuguesa",
+                                "imagem": "img/licenciatura_em_lingua_portuguesa.png",
+                                "tipo_curso": "Licenciatura",
+                                "duracao": "4 anos",
+                                "modalidade": "Semipresencial",
+                                "preco_cheio": "R$ 690,00",
+                                "preco_desconto": "R$ 132,00",
+                                "sobre_curso": "O curso de Licenciatura em Língua Portuguesa é voltado para estudantes que desejam atuar na educação, formando-se como professores de Língua Portuguesa e Literatura para os ensinos fundamental e médio. É ideal para aqueles que têm interesse por literatura, linguística, ensino e educação, e buscam uma formação que combine conhecimentos linguísticos e literários com práticas pedagógicas contemporâneas.",
+                                "mercado_trabalho": "O licenciado em Língua Portuguesa encontra oportunidades principalmente na área educacional, atuando como professor em escolas públicas e privadas, cursinhos preparatórios e ensino superior. Pode também trabalhar com revisão de textos, produção de materiais didáticos, pesquisa em educação e linguística, além de atuar em editoras e empresas de comunicação.",
+                                "competencias": [
+                                          "Domínio da língua portuguesa",
+                                          "Conhecimento de literatura brasileira e mundial",
+                                          "Planejamento e execução de aulas",
+                                          "Metodologias de ensino de língua e literatura",
+                                          "Avaliação da aprendizagem",
+                                          "Produção e revisão de textos",
+                                          "Pesquisa em educação e linguística",
+                                          "Desenvolvimento de materiais didáticos",
+                                          "Ética e responsabilidade profissional"
+                                ],
+                                "redirect_inscricao": "redirect.html?id=licenciatura_portugues"
+                      },
+                      "engenharia_civil": {
+                                "id": "engenharia_civil",
+                                "nome": "Engenharia Civil",
+                                "imagem": "img/engenharia_civil.png",
+                                "tipo_curso": "Bacharelado",
+                                "duracao": "5 anos",
+                                "modalidade": "Semipresencial",
+                                "preco_cheio": "R$ 920,00",
+                                "preco_desconto": "R$ 199,90",
+                                "sobre_curso": "O curso de Engenharia Civil é voltado para estudantes que desejam atuar no planejamento, projeto, construção e manutenção de obras e infraestruturas. É ideal para aqueles que têm interesse por construção, matemática, física e tecnologia, e buscam uma formação que combine conhecimentos técnicos sólidos com habilidades de gestão e inovação.",
+                                "mercado_trabalho": "O engenheiro civil possui um mercado de trabalho amplo e diversificado. Pode atuar em construtoras, empresas de infraestrutura, órgãos públicos, escritórios de projetos, empresas de consultoria, além de empreender no próprio negócio. As áreas de atuação incluem estruturas, geotecnia, transportes, saneamento, hidráulica e gestão de obras.",
+                                "competencias": [
+                                          "Projeto e dimensionamento de estruturas",
+                                          "Planejamento e gestão de obras",
+                                          "Análise de solos e fundações",
+                                          "Projeto de sistemas hidráulicos e sanitários",
+                                          "Projeto de vias e transportes",
+                                          "Gestão de recursos e custos",
+                                          "Uso de softwares de engenharia",
+                                          "Análise de viabilidade técnica e econômica",
+                                          "Ética e responsabilidade profissional"
+                                ],
+                                "redirect_inscricao": "redirect.html?id=engenharia_civil"
+                      }
+        };
+
+        // Função para obter parâmetros da URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+        // Carregar dados do curso
+        function loadCourseData() {
+            const courseId = getUrlParameter('id');
+            if (!courseId) {
+                document.body.innerHTML = '<h1>Curso não encontrado</h1><p>Por favor, selecione um curso válido.</p>';
+                return;
+            }
+            const course = coursesData[courseId];
+            if (!course) {
+                document.body.innerHTML = '<h1>Curso não encontrado</h1><p>O curso solicitado não existe.</p>';
+                return;
+            }
+            // Preencher os dados na página
+            document.getElementById('page-title').textContent = `${course.nome} – Oferta ETEP / Polo Uninacional`;
+            document.getElementById('course-name').textContent = course.nome;
+            document.getElementById('course-image').src = course.imagem;
+            document.getElementById('course-image').alt = course.nome;
+            document.getElementById('sobre-curso').textContent = course.sobre_curso;
+            document.getElementById('mercado-trabalho').textContent = course.mercado_trabalho;
+            document.getElementById('preco-cheio').textContent = `De ${course.preco_cheio}`;
+            document.getElementById('preco-desconto').textContent = `por ${course.preco_desconto}`;
+            document.getElementById('inscricao-link').href = course.redirect_inscricao;
+            document.getElementById('curso-parceria').textContent = `curso de ${course.nome}`;
+            // Preencher informações do curso no sidebar
+            document.getElementById('course-modality').textContent = course.modalidade || 'EaD';
+            document.getElementById('course-type').textContent = course.tipo_curso;
+            document.getElementById('course-duration').textContent = course.duracao;
+            // Preencher competências
+            const competenciasList = document.getElementById('competencias');
+            competenciasList.innerHTML = '';
+            course.competencias.forEach(competencia => {
+                const li = document.createElement('li');
+                li.textContent = competencia;
+                competenciasList.appendChild(li);
+            });
+        }
+        // Carregar dados quando a página estiver pronta
+        document.addEventListener('DOMContentLoaded', loadCourseData);
+    </script>
+</body>
+</html>

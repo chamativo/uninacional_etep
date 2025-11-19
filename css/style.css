@@ -1,0 +1,724 @@
+/*
+ * Global stylesheet for the Uninacional site prototype.
+ *
+ * The design is intentionally simple and lightweight so it can run as a
+ * static website without external dependencies. It uses CSS custom
+ * properties to allow switching the primary brand colour based on the
+ * institution offering the course. To change the colour palette on a
+ * page, add the class `theme-etep` or `theme-uni` to the `<body>` tag.
+ */
+
+/* colour palette */
+:root {
+    --color-uni: #003366;       /* deep blue for Uninacional */
+    --color-etep: #f57c00;      /* orange for ETEP */
+    --color-light: #fafafa;     /* light background */
+    --color-dark: #222222;      /* dark text */
+    --color-accent: #006699;    /* accent colour for buttons */
+    /* Primary colour defaults to Uninacional; overridden by theme classes */
+    --color-primary: var(--color-uni);
+}
+
+/* theme overrides */
+.theme-etep {
+    --color-primary: var(--color-etep);
+}
+
+.theme-uni {
+    --color-primary: var(--color-uni);
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+/* Header and navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 84px;
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+header .logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav a {
+    color: #ffffff;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero / search section on the home page */
+
+/* Hero section on the home page uses a photographic background
+ * combined with a dark overlay so that text and form fields remain legible. */
+.hero {
+    position: relative;
+    padding: 5rem 2rem 2.5rem 2rem;
+    min-height: 38vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    background-image: url('../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+/* dark overlay over the hero image */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+/* ensure hero content stays above the overlay */
+.hero h1,
+.hero form {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    flex: 2 1 auto;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search-container select {
+    flex: 1 1 auto;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search-container button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.search-container button:hover {
+    opacity: 0.9;
+}
+
+/* Who we are section */
+.section {
+    padding: 3rem 2rem;
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section#quem-somos h2,
+.section#contato h2 {
+    text-align: left;
+}
+
+.section#nossos-cursos h2 {
+    text-align: center;
+}
+
+/* Modality cards section */
+.modality-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.modality-card {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+
+.modality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-decoration: none;
+    color: inherit;
+}
+
+.modality-card .modality-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+.modality-card h3 {
+    padding: 1.5rem;
+    margin: 0;
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.section h2#course-name {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.section h2.about-course {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    text-transform: none;
+}
+
+.section h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.competencies-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.competencies-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.competencies-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.section p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.section#quem-somos .about-container p {
+    margin: 0;
+    text-align: left;
+}
+
+/* layout for the about/quem somos section */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-container .about-image {
+    flex: 1 1 300px;
+    max-width: 400px;
+    border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.about-container p {
+    flex: 2 1 400px;
+    margin: 0;
+}
+
+/* Courses listing */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.course-card {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* image at the top of a course card */
+.course-card .course-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/6;
+    object-fit: contain;
+    background-color: #f5f5f5;
+    display: block;
+}
+
+.course-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.course-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    color: var(--color-primary);
+}
+
+.course-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.course-card .modality {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.course-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.course-type-duration {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+.course-type-duration .tipo-curso {
+    font-weight: 600;
+}
+
+.course-type-duration .duracao {
+    color: #888;
+}
+
+.course-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.course-card .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.course-card .logos img {
+    height: 40px;
+    width: auto;
+}
+
+.course-card .cta {
+    text-align: right;
+}
+
+.course-card .cta a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.course-card .cta a:hover {
+    opacity: 0.9;
+}
+
+/* Course detail page */
+.course-detail {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.course-detail .info {
+    flex: 2 1 400px;
+}
+
+.course-detail .sidebar {
+    flex: 1 1 280px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.sidebar .course-info-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.sidebar .course-modality {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.sidebar .course-type-duration {
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+.sidebar .course-type-duration span {
+    display: inline-block;
+}
+
+.sidebar .price {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.sidebar .promo-price {
+    background-color: #6a1b9a;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.sidebar .price-container {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.sidebar .price-original {
+    text-decoration: line-through;
+    color: #666;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.sidebar .price-discount {
+    color: #f57c00;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.sidebar .price-note {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.sidebar .benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.sidebar .benefits li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.sidebar .benefits li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary);
+}
+
+.sidebar .cta {
+    text-align: center;
+}
+
+.sidebar .cta a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.sidebar .cta a:hover {
+    opacity: 0.9;
+}
+
+/* Redirect/animation page */
+.redirect-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.redirect-container .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #cccccc;
+    border-top: 4px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Registration page */
+.registration {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.registration .sidebar {
+    flex: 1 1 250px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.registration .sidebar h3 {
+    margin-top: 0;
+}
+
+.registration .sidebar .course-info {
+    margin-bottom: 1rem;
+}
+
+.registration .sidebar .course-info img {
+    height: 32px;
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.registration .steps {
+    margin-bottom: 1.5rem;
+}
+
+.registration .steps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.registration .steps li {
+    padding: 0.5rem 0;
+    border-left: 4px solid #cccccc;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.registration .steps li.active {
+    border-left-color: var(--color-primary);
+    font-weight: bold;
+}
+
+.registration .form-container {
+    flex: 2 1 400px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.registration form {
+    display: grid;
+    gap: 1rem;
+}
+
+.registration form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.registration form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.registration form button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    justify-self: start;
+}
+
+.registration form button:hover {
+    opacity: 0.9;
+}
+
+/* banner image at the top of course detail pages */
+.course-banner {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16/9;         /* proporção mais compacta */
+    object-fit: contain;        /* NÃO corta nada */
+    background-color: #f5f5f5;  /* igual aos cards */
+    border-radius: 8px;
+    margin: 0 auto 2rem auto;
+    display: block;
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .header nav a {
+        margin-left: 0.5rem;
+    }
+    .hero {
+        padding: 3rem 1rem;
+    }
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    .course-detail {
+        flex-direction: column;
+    }
+    .course-detail .sidebar {
+        order: 2;
+    }
+    .registration {
+        flex-direction: column;
+    }
+    .registration .sidebar {
+        order: 2;
+    }
+}
